@@ -1,0 +1,20 @@
+name: 'buildtag-action'
+description: 'Generate a build tag unique to the workflow run for use in version tags and docker image tags'
+inputs:
+  template:
+    required: true
+    description: 'The tag template'
+  timeFormat:
+    required: false
+    description: 'Format specifier for the time tag element'
+    default: 'YYYYMMDDHHmm'
+  shortShaLength:
+    required: false
+    description: 'Number of characters of the full SHA to use when referring to shortSha'
+    default: '7'
+outputs:
+  tag:
+    description: 'The generated TAG'
+runs:
+  using: 'node16'
+  main: 'index.js'
